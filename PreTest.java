@@ -1,68 +1,70 @@
 import java.util.Scanner;
 
-public class PreTest {
+// Kelas Kalkulator
+class Kalkulator {
+    private double angka1;
+    private double angka2;
+
+    // Constructor untuk inisialisasi angka pertama dan kedua
+    public Kalkulator(double angka1, double angka2) {
+        this.angka1 = angka1;
+        this.angka2 = angka2;
+    }
+
+    // Method untuk melakukan operasi matematika
+    public double hitung(char operasi) {
+        double hasil = 0;
+        switch (operasi) {
+            case '+':
+                hasil = angka1 + angka2;
+                break;
+            case '-':
+                hasil = angka1 - angka2;
+                break;
+            case '*':
+                hasil = angka1 * angka2;
+                break;
+            case '/':
+                if (angka2 != 0) {
+                    hasil = angka1 / angka2;
+                } else {
+                    System.out.println("Error: Pembagian dengan nol tidak diperbolehkan.");
+                    return 0;
+                }
+                break;
+            default:
+                System.out.println("Operasi tidak valid.");
+                return 0;
+        }
+        return hasil;
+    }
+}
+
+// Kelas utama
+public class SimpleKalkulatorOOP {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        char ulang;
 
-        do {
-            // Menampilkan pilihan operasi
-            System.out.println("Pilih operasi:");
-            System.out.println("1. Perkalian");
-            System.out.println("2. Pembagian");
-            System.out.println("3. Penjumlahan");
-            System.out.println("4. Pengurangan");
+        // Memasukkan angka pertama dan kedua
+        System.out.print("Masukkan angka pertama: ");
+        double angka1 = input.nextDouble();
+        System.out.print("Masukkan angka kedua: ");
+        double angka2 = input.nextDouble();
 
-            // Input pilihan operasi
-            System.out.print("Masukkan pilihan (1-4): ");
-            int pilihan = input.nextInt();
+        // Memilih operasi
+        System.out.println("Pilih operasi: +, -, *, /");
+        char operasi = input.next().charAt(0);
 
-            // Input bilangan pertama
-            System.out.print("Masukkan bilangan pertama: ");
-            double bilanganPertama = input.nextDouble();
+        // Membuat objek Kalkulator
+        Kalkulator kalkulator = new Kalkulator(angka1, angka2);
 
-            // Input bilangan kedua
-            System.out.print("Masukkan bilangan kedua: ");
-            double bilanganKedua = input.nextDouble();
+        // Menghitung dan menampilkan hasil
+        double hasil = kalkulator.hitung(operasi);
+        if (hasil != 0 || operasi == '+') { // Mengecek hasil agar error message tidak ditampilkan lagi
+            System.out.println("Hasil: " + hasil);
+        }
 
-            // Variabel hasil
-            double hasil = 0;
-
-            // Switch untuk memilih operasi
-            switch (pilihan) {
-                case 1:
-                    hasil = bilanganPertama * bilanganKedua;
-                    System.out.println("Hasil dari " + bilanganPertama + " x " + bilanganKedua + " = " + hasil);
-                    break;
-                case 2:
-                    // Cek pembagian dengan nol
-                    if (bilanganKedua != 0) {
-                        hasil = bilanganPertama / bilanganKedua;
-                        System.out.println("Hasil dari " + bilanganPertama + " / " + bilanganKedua + " = " + hasil);
-                    } else {
-                        System.out.println("Error: Tidak bisa membagi dengan nol.");
-                    }
-                    break;
-                case 3:
-                    hasil = bilanganPertama + bilanganKedua;
-                    System.out.println("Hasil dari " + bilanganPertama + " + " + bilanganKedua + " = " + hasil);
-                    break;
-                case 4:
-                    hasil = bilanganPertama - bilanganKedua;
-                    System.out.println("Hasil dari " + bilanganPertama + " - " + bilanganKedua + " = " + hasil);
-                    break;
-                default:
-                    System.out.println("Pilihan tidak valid. Silakan pilih antara 1 hingga 4.");
-                    break;
-            }
-
-            // Konfirmasi untuk mengulang
-            System.out.print("Apakah ingin mengulang? (y/n): ");
-            ulang = input.next().charAt(0);
-
-        } while (ulang == 'y' || ulang == 'Y');
-
-        System.out.println("Program selesai.");
         input.close();
     }
 }
+
