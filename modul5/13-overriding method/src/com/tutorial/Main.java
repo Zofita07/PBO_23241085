@@ -1,17 +1,15 @@
 package com.tutorial;
 
 public class Main {
-    //membuat objek dari superclas
-    Hero hero1Hero = new Hero();
-    System.out.println("Hero dari superclaas")
-    hero1.nama = "saitama"
-    hero1.cetak ();
+    public static void main(String[] args) {
+        // Membuat objek dari superclass Hero
+        Hero hero1 = new Hero();
+        hero1.nama = "Saitama";
+        hero1.cetak();
 
-    ////membuat objek dari Herotank
-    Hero hero1Hero = new HeroTank();
-    System.out.println("Hero dari HeroTank")
-    hero2.defancePower = 100;
-    hero2.cetak ();
-
-    
+        // Membuat objek dari subclass HeroTank
+        HeroTank hero2 = new HeroTank();
+        hero2.nama = "Gatotkaca";
+        hero2.cetak();
+    }
 }

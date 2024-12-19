@@ -1,18 +1,12 @@
 package com.tutorial;
 
-public class HeroTank extends {
-    //atribut hanya dimiliki oleh subcls
-    double defancePower;
+// Subclass HeroTank yang mewarisi Hero
+public class HeroTank extends Hero {
+    public int defensePower;
 
-    //overriding method cetak (superclas)
-    voidcetak (){
-        System.out.println("\nHero Tank");
-        //membuat objek dari superclas
-    Hero hero1Hero = new Hero();
-    System.out.println("Hero dari superclaas")
-    hero1.nama = "saitama"
-    hero1.cetak ();
-
+    @Override
+    public void cetak() {
+        super.cetak(); // Memanggil metode cetak() dari superclass
+        System.out.println("Defense Power: " + defensePower);
     }
-    
 }

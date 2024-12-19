@@ -4,7 +4,7 @@ public class Main{
 
     public static void main(String[] args) {
          //membuat objek baru
-         Hero hero1 = new Hero();
+         Hero. hero1 = new Hero();
          Hero hero2 = "goku"
          Hero.cetak();
 

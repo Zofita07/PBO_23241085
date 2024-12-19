@@ -1,22 +1,22 @@
 package com.tutorial;
 
 public class Hero {
-    //atribut
-    String nama ;
+    // atribut
+    String nama;
     double defancePower;
-    double attacPower ;
+    double attacPower;
 
-    //construktor
-    Hero String nama, double defancePower, double attacPower
-    this.defancePower = defancePower
-    this.attacPower = attacPower
-
-    //method
-    void.cetak(){
-        System.out.println("nama" + this.nama);
-        System.out.println("defance :" + this.defancePower);
-        System.out.println("attacPower :" + this.attacPower);
+    // konstruktor
+    public Hero(String nama, double defancePower, double attacPower) {
+        this.nama = nama;
+        this.defancePower = defancePower;
+        this.attacPower = attacPower;
     }
 
-    
+    // method
+    void cetak() {
+        System.out.println("Nama: " + this.nama);
+        System.out.println("Defance Power: " + this.defancePower);
+        System.out.println("Attack Power: " + this.attacPower);
+    }
 }
